@@ -44,6 +44,20 @@ https://github.com/grpc/grpc/blob/master/doc/health-checking.md
 
 https://www.consul.io/docs/agent/checks.html
 
+
+```
+{
+  "check": {
+    "id": "mem-util",
+    "name": "Service health status",
+    "grpc": "127.0.0.1:9000",
+    "grpc_use_tls": false,
+    "interval": "10s"
+  }
+}
+
+```
+
 gRPC + Interval - These checks are intended for applications that support the standard gRPC
 health checking protocol. The state of the check will be updated at the given interval by
 probing the configured endpoint. By default, gRPC checks will be configured with a default
