@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "net.andreaskluth.cart";
+option java_outer_classname = "CartProto";
+
+package cart;
+
+service CartService {
+
+  rpc GetCart (CartId) returns (Cart) {
+  }
+
+}
+
+message Cart {
+  CartId id = 1;
+  Version version = 2;
+  repeated ServiceType serviceType = 3;
+  repeated LineItem lineItem = 4;
+}
+
+message CartId {
+  string value = 1;
+}
+
+message ServiceType {
+  string value = 1;
+}
+
+message LineItem {
+  Listing listing = 1;
+  Version version = 2;
+  PriceInCent priceWhenAdded = 3;
+}
+
+message Listing {
+  ListingId id = 1;
+  PriceInCent currentPrice = 5;
+}
+
+message ListingId {
+  string value = 1;
+}
+
+message Version {
+  int64 value = 1;
+}
+
+message PriceInCent {
+  int64 value = 1;
+}
+
+
+
